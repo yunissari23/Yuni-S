@@ -1,5 +1,5 @@
 import numpy as np
-import malplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import streamlit as st
 
 # Header
