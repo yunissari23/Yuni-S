@@ -4,7 +4,7 @@ import streamlit as st
 st.header('Yuni (210322607221) :sparkles:')
 st.subheader('Plot')
 
-c1, c2, c3, c4, c5 = st.columns(4)
+c1, c2, c3, c4, c5 = st.columns(5)
 
 with c1:
   x = st.number_input('Bilangan pertama',value=0)
