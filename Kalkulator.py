@@ -22,6 +22,6 @@ with c4:
   elif(operator=='x'):
     st.write('= ', x*y)
   elif(operator==':'):
-    st.write('= ', x/y)
+    st.write('Hasil',(('= '), x/y)
 
 st.caption('Copyright © Yuni Setiasari 2023')
