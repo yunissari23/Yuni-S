@@ -27,8 +27,5 @@ with c4:
   elif(operator==':'):
     st.write('Hasil')
     st.write('= ', x/y)
-with c5:
-  hasil = st.box(
-    'Hasil',
-    ('='), x+y)
+
 st.caption('Copyright © Yuni Setiasari 2023')
