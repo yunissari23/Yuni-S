@@ -1,7 +1,7 @@
 import streamlit as st
 
 #Header
-st.header('Yuni :sparkles:')
+st.header('Yuni (210322607221) :sparkles:')
 st.subheader('Plot')
 
 c1, c2, c3, c4 = st.columns(4)
