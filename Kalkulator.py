@@ -15,6 +15,17 @@ with c2:
 with c3:
   y = st.number_input('y',value=0)
 with c4:
-  st.write('= ', x, operator, y)
+  x + y = o
+  x - y = p
+  x * y = q
+  x / y = r
+  st.if(operator=='+')
+    st.write('= ', o)
+  st.if(operator=='-')
+    st.write('= ', p)
+  st.if(operator=='x')
+    st.write('= ', q)
+  st.if(operator==':')
+    st.write('= ', r)
 
 st.caption('Copyright © Yuni Setiasari 2023')
