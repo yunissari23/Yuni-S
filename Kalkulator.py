@@ -4,7 +4,7 @@ import streamlit as st
 st.header('Yuni (210322607221) :sparkles:')
 st.subheader('Plot')
 
-c1, c2, c3, c4 = st.columns(4)
+c1, c2, c3, c4, c5 = st.columns(4)
 
 with c1:
   x = st.number_input('Bilangan pertama',value=0)
@@ -27,5 +27,8 @@ with c4:
   elif(operator==':'):
     st.write('Hasil')
     st.write('= ', x/y)
-
+with c5:
+  hasil = st.box(
+    'Hasil',
+    ('='), x+y)
 st.caption('Copyright © Yuni Setiasari 2023')
