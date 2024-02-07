@@ -17,11 +17,11 @@ with c3:
 with c4:
   st.if(operator=='+')
     st.write('= ', x+y)
-  st.if(operator=='-')
+  st.elif(operator=='-')
     st.write('= ', x-y)
-  st.if(operator=='x')
+  st.elif(operator=='x')
     st.write('= ', x*y)
-  st.if(operator==':')
+  st.elif(operator==':')
     st.write('= ', x/y)
 
 st.caption('Copyright © Yuni Setiasari 2023')
