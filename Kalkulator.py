@@ -15,13 +15,13 @@ with c2:
 with c3:
   y = st.number_input('y',value=0)
 with c4:
-  st.if(operator=='+')
+  st.if(operator=='+'):
     st.write('= ', x+y)
-  st.elif(operator=='-')
+  st.elif(operator=='-'):
     st.write('= ', x-y)
-  st.elif(operator=='x')
+  st.elif(operator=='x'):
     st.write('= ', x*y)
-  st.elif(operator==':')
+  st.elif(operator==':'):
     st.write('= ', x/y)
 
 st.caption('Copyright © Yuni Setiasari 2023')
