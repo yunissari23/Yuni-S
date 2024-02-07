@@ -16,20 +16,16 @@ with c3:
   y = st.number_input('Bilangan kedua',value=0)
 with c4:
   if(operator=='+'):
-    st.write(
-      'Hasil',
-      ('= '), x+y)
+    st.write('Hasil')
+    st.write('= ', x+y)
   elif(operator=='-'):
-    st.write(
-      'Hasil',
-      ('= '), x-y)
+    st.write('Hasil')
+    st.write('= ', x-y)
   elif(operator=='x'):
-    st.write(
-      'Hasil',
-      ('= '), x*y)
+    st.write('Hasil')
+    st.write('= ', x*y)
   elif(operator==':'):
-    st.write(
-      'Hasil',
-      ('= '), x/y)
+    st.write('Hasil')
+    st.write('= ', x/y)
 
 st.caption('Copyright © Yuni Setiasari 2023')
