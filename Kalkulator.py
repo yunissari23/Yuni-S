@@ -16,11 +16,11 @@ with c3:
   y = st.number_input('Bilangan kedua',value=0)
 with c4:
   if(operator=='+'):
-    st.write('= ', x+y)
+    st.write('Hasil',(('= '), x+y)
   elif(operator=='-'):
-    st.write('= ', x-y)
+    st.write('Hasil',(('= '), x-y)
   elif(operator=='x'):
-    st.write('= ', x*y)
+    st.write('Hasil',(('= '), x*y)
   elif(operator==':'):
     st.write('Hasil',(('= '), x/y)
 
