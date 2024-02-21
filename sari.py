@@ -25,8 +25,6 @@ st.pyplot(fig)
 a = 25
 b = 21
 c = 14
-d = 9
-e = 19
 n = 128
 
 def f(x):
@@ -48,16 +46,25 @@ ax.tick_params(axis='x', labelsize=15)
 plt.grid(color='green', linestyle='-.', linewidth=.5)
 st.pyplot(fig)
 
-#integral
-def integral(d,e,n):
-  dx = (e-(-d))/n
-  hasil = 0
-  for i in range(n):
-    hasil += 0.5*(f(-d+i*dx)+f(-d+(1+i)*dx))*dx
-  return hasil
-  
-x = st.slider('Pilih rentang', -20, 20, (4, 6))
-st.write('nilai x:', x)
+#metode trapesium integral
+def trapesium(f, a, b, n=100):
+  x = np.linspace(a, b, n+1)
+  y = f(x)
+  h = (b-a)/n
+  s = 0.5*(y[0]+y[-1])+np.sum(y[1:-1])
+  return h*s
 
-r = integral(d,e,n)
-st.write('Nilai integral:', r)
+#rentang integral
+integral_range = st.slider('Pilih rentang', -20, 20, (4, 6), key='integral_range')
+integral_result = trapesium(f, integral_range[0], integral_range[1])
+
+#arsiran luas integral
+t_fill = np.linspace(integral_range[0], integral_range[1], 100)
+u_fill = f(t_fill)
+ax.fill_between(t_fill, 0, u_fill, color='blue', alpha=0.4)
+
+ax.set_xlabels("t")
+plt.grid(color='green', linestyle='-.', linewidth=.5)
+st.pyplot(fig)
+
+st.write(f"Hasil integral pada rentang {integral_range} adalah: {integral_result}")
