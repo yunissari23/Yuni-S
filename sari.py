@@ -63,7 +63,7 @@ t_fill = np.linspace(integral_range[0], integral_range[1], 100)
 u_fill = f(t_fill)
 ax.fill_between(t_fill, 0, u_fill, color='blue', alpha=0.4)
 
-ax.set_xlabels("t")
+ax.set_xlabel("t")
 plt.grid(color='green', linestyle='-.', linewidth=.5)
 st.pyplot(fig)
 
