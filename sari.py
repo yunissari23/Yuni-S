@@ -2,12 +2,6 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-def f(x):
-  a = 19
-  b = 1
-  c = 18
-  return a*x*x+b*x-c
-
 x = st.slider('Pilih rentang', 0.0, 2.0, (.2, .5))
 st.write('nilai x:', x)
 y = st.slider('Set nilai', 0.0, 10.0, 6.0)
@@ -27,7 +21,7 @@ ax.tick_params(axis='x', labelsize=15)
 plt.grid(color='green', linestyle='-.', linewidth=.5)
 st.pyplot(fig)
 
-#fungsi kuadrat dan integral
+#fungsi kuadrat
 def f(x):
   a = 19
   b = 1
@@ -39,6 +33,7 @@ st.write('nilai x:', x)
 
 t = np.linspace(x[0],x[1],100)
 u = f(t)
+
 fig, ax = plt.subplots(figsize=(16, 8))
 ax.plot(t, u, label='sin(t)', color='b') #Plotting sin(t) curve
 ax.set_ylabel("")
@@ -48,3 +43,17 @@ ax.set_xticklabels(ax.get_xticklabels(), rotation=30, ha='right')
 ax.tick_params(axis='x', labelsize=15)
 plt.grid(color='green', linestyle='-.', linewidth=.5)
 st.pyplot(fig)
+
+#integral
+def integral(d,e,n):
+  dx = (e-(-d))/n
+  hasil = 0
+  for i in range(n):
+    hasil += 0.5*(f(-d+i*dx)+f(-d+(1+i)*dx))*dx
+  return hasil
+  
+x = st.slider('Pilih rentang', -20, 20, (4, 6))
+st.write('nilai x:', x)
+
+r = integral(d,e,n)
+st.write('Nilai integral:', r)
