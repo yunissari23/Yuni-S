@@ -27,13 +27,17 @@ ax.tick_params(axis='x', labelsize=15)
 plt.grid(color='green', linestyle='-.', linewidth=.5)
 st.pyplot(fig)
 
-#fungsi kuadrat
+#fungsi kuadrat dan integral
 def f(x):
   a = 19
   b = 1
   c = 18
   return a*x*x+b*x-c
 
+x = st.slider('Pilih rentang', -20, 20, (8, 12))
+st.write('nilai x:', x)
+
+t = np.linspace(x[0],x[1],100)
 u = f(t)
 fig, ax = plt.subplots(figsize=(16, 8))
 ax.plot(t, u, label='sin(t)', color='b') #Plotting sin(t) curve
