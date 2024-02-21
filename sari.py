@@ -22,10 +22,14 @@ plt.grid(color='green', linestyle='-.', linewidth=.5)
 st.pyplot(fig)
 
 #fungsi kuadrat
+a = 25
+b = 21
+c = 14
+d = 9
+e = 19
+n = 128
+
 def f(x):
-  a = 19
-  b = 1
-  c = 18
   return a*x*x+b*x-c
 
 x = st.slider('Pilih rentang', -20, 20, (8, 12))
