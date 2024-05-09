@@ -33,7 +33,6 @@ new_feeling_of_guilt = st.selectbox('Feeling of guilt',['Yes','No','Maybe'])
 new_problems_of_bonding_with_people = st.selectbox('Problems of bonding with people',['Yes','No','Sometimes'])
 new_suicide_attempt = st.selectbox('Suicide attempt',['Yes','No','Not interested to say'])
 
-st.button('Prediksi')
 
 if file is not None:
     df = pd.read_csv(file)
