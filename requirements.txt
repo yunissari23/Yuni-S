@@ -1,6 +1,7 @@
 matplotlib==3.7.2
 numpy==1.25.2
 streamlit==1.26.0
-scikit-learn
-tensorflow
-google.colab
+scikit-learn==1.2.2
+tensorflow==2.15.0
+google.colab==1.0.0
+pandas==2.0.3
