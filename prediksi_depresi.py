@@ -33,6 +33,7 @@ new_feeling_of_guilt = st.selectbox('Feeling of guilt',['Yes','No','Maybe'])
 new_problems_of_bonding_with_people = st.selectbox('Problems of bonding with people',['Yes','No','Sometimes'])
 new_suicide_attempt = st.selectbox('Suicide attempt',['Yes','No','Not interested to say'])
 
+prediksi = st.button('Prediksi')
 
 if file is not None:
     df = pd.read_csv(file)
@@ -85,7 +86,7 @@ if file is not None:
 
 
 # Input data baru
-    if st.button('Prediksi'):
+    if prediksi:
         new_data = np.array([[new_age, new_feeling_sad, new_irritable_towards_people, new_trouble_sleeping_at_night, new_problems_concentrating_or_making_decision, new_loss_of_appetite, new_feeling_of_guilt, new_problems_of_bonding_with_people, new_suicide_attempt]])
         new_data_scaled = scaler.transform(new_data)
 
