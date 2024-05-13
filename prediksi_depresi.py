@@ -141,9 +141,6 @@ if file is not None:
 
 
 # hasil prediksi
-        st.write(f"Predicted Probability: {predictions[0][0]}")
-        st.write(f"Binary Prediction: {binary_predictions[0][0]}")
-
         if (binary_predictions==0):
             st.write("Selamat, Anda tidak depresi :)")
         else:
