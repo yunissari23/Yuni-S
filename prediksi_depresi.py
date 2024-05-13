@@ -74,7 +74,8 @@ st.write('')
 
 prediksi = st.button('Prediksi')
 
-df = pd.read_csv(file, sep='\t')
+col_names = ["Age", "Feeling sad", "Irritable towards people", "Trouble sleeping at night", "Problems concentrating or making decision", "loss of appetite", "Feeling of guilt", "Problems of bonding with people", "Suicide attempt")
+df = pd.read_csv(file, names=col_names)
 
 # Split the data into features (X) and target variable (y)
 X = df.drop(columns=['Timestamp', 'Depressed'])
