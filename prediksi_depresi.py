@@ -24,14 +24,35 @@ file = st.file_uploader("Unggah file CSV", type=["csv"])
 
 # Widget input untuk data baru
 new_age = st.number_input('Age', value=0, min_value=0, max_value=4)
+new_age1 = st.write('25-30 tahun: 0')
+new_age2 = st.write('30-35 tahun: 1')
+new_age3 = st.write('35-40 tahun: 2')
+new_age4 = st.write('40-45 tahun: 3')
+new_age5 = st.write('45-50 tahun: 4')
+
 new_feeling_sad = st.number_input('Feeling sad', value=0, min_value=0, max_value=2)
+new_feeling_sad1 = st.write('Yes: 1 | No: 0 | Sometimes: 2')
+
 new_irritable_towards_people = st.number_input('Irritable towards people', value=0, min_value=0, max_value=2)
+new_irritable_towards_people1 = st.write('Yes: 1 | No: 0 | Sometimes: 2')
+
 new_trouble_sleeping_at_night = st.number_input('Trouble sleeping at night', value=0, min_value=0, max_value=2)
+new_trouble_sleeping_at_night1 = st.write('Yes: 1 | No: 0 | Two or more days a week: 2') 
+
 new_problems_concentrating_or_making_decision = st.number_input('Problems concentrating or making decision', value=0, min_value=0, max_value=2)
+new_problems_concentrating_or_making_decision1 = st.write('Yes: 1 | No: 0 | Often: 2')
+
 new_loss_of_appetite = st.number_input('loss of appetite', value=0, min_value=0, max_value=2)
+new_loss_of_appetite1 = st.write('Yes: 1 | No: 0 | Not at all: 2')
+
 new_feeling_of_guilt = st.number_input('Feeling of guilt', value=0, min_value=0, max_value=2)
+new_feeling_of_guilt1 = st.write('Yes: 1 | No: 0 | Maybe: 2')
+
 new_problems_of_bonding_with_people = st.number_input('Problems of bonding with people', value=0, min_value=0, max_value=2)
+new_problems_of_bonding_with_people1 = st.write('Yes: 1 | No: 0 | Sometimes: 2')
+
 new_suicide_attempt = st.number_input('Suicide attempt', value=0, min_value=0, max_value=2)
+new_suicide_attempt1 = st.write('Yes: 1 | No: 0 | Not interested to say: 2')
 
 prediksi = st.button('Prediksi')
 
@@ -102,3 +123,8 @@ if file is not None:
 # hasil prediksi
         st.write(f"Predicted Probability: {predictions[0][0]}")
         st.write(f"Binary Prediction: {binary_predictions[0][0]}")
+
+        if (binary_predictions==0):
+            st.write("Selamat, Anda tidak depresi :)")
+        else:
+            st.write("Anda terindikasi depresi :(")
