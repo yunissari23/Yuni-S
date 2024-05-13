@@ -21,8 +21,7 @@ st.title('Depression Prediction')
 st.write('Fill this form as your current condition')
 st.write('')
 
-file = st.file_uploader("Unggah file CSV", type=["csv"])
-st.write('')
+file = 'https://github.com/yunissari23/Yuni-S/blob/main/depressionData.csv'
 
 # Widget input untuk data baru
 new_age = st.number_input('**Age**', value=0, min_value=0, max_value=4)
@@ -76,72 +75,70 @@ st.write('')
 
 prediksi = st.button('Prediksi')
 
-if file is not None:
-    df = pd.read_csv(file)
-
+df = pd.read_csv(file)
 
 # Split the data into features (X) and target variable (y)
-    X = df.drop(columns=['Timestamp', 'Depressed'])
+X = df.drop(columns=['Timestamp', 'Depressed'])
 
-    X['Age'] = X['Age'].map({'25-30': 0, '30-35': 1, '35-40': 2, '40-45': 3, '45-50': 4})
-    X['Feeling sad'] = X['Feeling sad'].map({'Yes': 1, 'No': 0, 'Sometimes': 2})
-    X['Irritable towards people'] = X['Irritable towards people'].map({'Yes': 1, 'No': 0, 'Sometimes': 2})
-    X['Trouble sleeping at night'] = X['Trouble sleeping at night'].map({'Yes': 1, 'No': 0, 'Two or more days a week': 2})
-    X['Problems concentrating or making decision'] = X['Problems concentrating or making decision'].map({'Yes': 1, 'No': 0, 'Often': 2})
-    X['loss of appetite'] = X['loss of appetite'].map({'Yes': 1, 'No': 0, 'Not at all': 2})
-    X['Feeling of guilt'] = X['Feeling of guilt'].map({'Yes': 1, 'No': 0, 'Maybe': 2})
-    X['Problems of bonding with people'] = X['Problems of bonding with people'].map({'Yes': 1, 'No': 0, 'Sometimes': 2})
-    X['Suicide attempt'] = X['Suicide attempt'].map({'Yes': 1, 'No': 0, 'Not interested to say': 2})
+X['Age'] = X['Age'].map({'25-30': 0, '30-35': 1, '35-40': 2, '40-45': 3, '45-50': 4})
+X['Feeling sad'] = X['Feeling sad'].map({'Yes': 1, 'No': 0, 'Sometimes': 2})
+X['Irritable towards people'] = X['Irritable towards people'].map({'Yes': 1, 'No': 0, 'Sometimes': 2})
+X['Trouble sleeping at night'] = X['Trouble sleeping at night'].map({'Yes': 1, 'No': 0, 'Two or more days a week': 2})
+X['Problems concentrating or making decision'] = X['Problems concentrating or making decision'].map({'Yes': 1, 'No': 0, 'Often': 2})
+X['loss of appetite'] = X['loss of appetite'].map({'Yes': 1, 'No': 0, 'Not at all': 2})
+X['Feeling of guilt'] = X['Feeling of guilt'].map({'Yes': 1, 'No': 0, 'Maybe': 2})
+X['Problems of bonding with people'] = X['Problems of bonding with people'].map({'Yes': 1, 'No': 0, 'Sometimes': 2})
+X['Suicide attempt'] = X['Suicide attempt'].map({'Yes': 1, 'No': 0, 'Not interested to say': 2})
 
-    y = df['Depressed'].map({'Yes': 1, 'No': 0})
+y = df['Depressed'].map({'Yes': 1, 'No': 0})
 
 
 # Split the data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 
 # Standardize the features
-    scaler = StandardScaler()
-    X_train = scaler.fit_transform(X_train)
-    X_test = scaler.transform(X_test)
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
 
 
 # Build the model
-    model = Sequential([
-        Dense(128, activation='relu', input_shape=(X_train.shape[1],)),
-        Dense(64, activation='relu'),
-        Dense(32, activation='relu'),
-        Dense(10, activation='softmax'),
-        Dense(1, activation='sigmoid')
-    ])
+model = Sequential([
+    Dense(128, activation='relu', input_shape=(X_train.shape[1],)),
+    Dense(64, activation='relu'),
+    Dense(32, activation='relu'),
+    Dense(10, activation='softmax'),
+    Dense(1, activation='sigmoid')
+])
 
-    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 
 # Train the model
-    model.fit(X_train, y_train, epochs=50, batch_size=64, validation_data=(X_test, y_test), verbose=2)
+model.fit(X_train, y_train, epochs=50, batch_size=64, validation_data=(X_test, y_test), verbose=2)
 
 
 # Evaluate the model
-    loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
+loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
 
 
 # Input data baru
-    if prediksi:
-        new_data = np.array([[new_age, new_feeling_sad, new_irritable_towards_people, new_trouble_sleeping_at_night, new_problems_concentrating_or_making_decision, new_loss_of_appetite, new_feeling_of_guilt, new_problems_of_bonding_with_people, new_suicide_attempt]])
-        new_data_scaled = scaler.transform(new_data)
+if prediksi:
+    new_data = np.array([[new_age, new_feeling_sad, new_irritable_towards_people, new_trouble_sleeping_at_night, new_problems_concentrating_or_making_decision, new_loss_of_appetite, new_feeling_of_guilt, new_problems_of_bonding_with_people, new_suicide_attempt]])
+    new_data_scaled = scaler.transform(new_data)
 
 
 # Prediksi dengan menggunakan model yang telah dilatih
-        predictions = model.predict(new_data_scaled)
+    predictions = model.predict(new_data_scaled)
 
 
 #konversi ke yes atau no dengan  threshold (0.5)
-        binary_predictions = (predictions > 0.5).astype(int)
+    binary_predictions = (predictions > 0.5).astype(int)
 
 
 # hasil prediksi
-        if (binary_predictions==0):
-            st.write("Selamat, Anda tidak depresi :)")
-        else:
-            st.write("Anda terindikasi depresi :(")
+    if (binary_predictions==0):
+        st.write("Selamat, Anda tidak depresi :)")
+    else:
+        st.write("Anda terindikasi depresi :(")
