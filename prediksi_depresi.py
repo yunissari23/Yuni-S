@@ -23,45 +23,54 @@ st.write('Fill this form as your current condition')
 file = st.file_uploader("Unggah file CSV", type=["csv"])
 
 # Widget input untuk data baru
-new_age = st.number_input('**Age**', value=0, min_value=0, max_value=4)
-st.write('25-30 tahun: 0')
-st.write('30-35 tahun: 1')
-st.write('35-40 tahun: 2')
-st.write('40-45 tahun: 3')
-st.write('45-50 tahun: 4')
-st.write('')
+with st.container():
+    new_age = st.number_input('**Age**', value=0, min_value=0, max_value=4)
+    st.write('25-30 tahun: 0')
+    st.write('30-35 tahun: 1')
+    st.write('35-40 tahun: 2')
+    st.write('40-45 tahun: 3')
+    st.write('45-50 tahun: 4')
+    st.write('')
 
-new_feeling_sad = st.number_input('**Feeling sad**', value=0, min_value=0, max_value=2)
-st.write('Yes: 1 | No: 0 | Sometimes: 2')
-st.write('')
+with st.container():
+    new_feeling_sad = st.number_input('**Feeling sad**', value=0, min_value=0, max_value=2)
+    st.write('Yes: 1 | No: 0 | Sometimes: 2')
+    st.write('')
 
-new_irritable_towards_people = st.number_input('**Irritable towards people**', value=0, min_value=0, max_value=2)
-st.write('Yes: 1 | No: 0 | Sometimes: 2')
-st.write('')
+with st.container():
+    new_irritable_towards_people = st.number_input('**Irritable towards people**', value=0, min_value=0, max_value=2)
+    st.write('Yes: 1 | No: 0 | Sometimes: 2')
+    st.write('')
 
-new_trouble_sleeping_at_night = st.number_input('**Trouble sleeping at night**', value=0, min_value=0, max_value=2)
-st.write('Yes: 1 | No: 0 | Two or more days a week: 2') 
-st.write('')
+with st.container():
+    new_trouble_sleeping_at_night = st.number_input('**Trouble sleeping at night**', value=0, min_value=0, max_value=2)
+    st.write('Yes: 1 | No: 0 | Two or more days a week: 2') 
+    st.write('')
 
-new_problems_concentrating_or_making_decision = st.number_input('**Problems concentrating or making decision**', value=0, min_value=0, max_value=2)
-st.write('Yes: 1 | No: 0 | Often: 2')
-st.write('')
+with st.container():
+    new_problems_concentrating_or_making_decision = st.number_input('**Problems concentrating or making decision**', value=0, min_value=0, max_value=2)
+    st.write('Yes: 1 | No: 0 | Often: 2')
+    st.write('')
 
-new_loss_of_appetite = st.number_input('**loss of appetite**', value=0, min_value=0, max_value=2)
-st.write('Yes: 1 | No: 0 | Not at all: 2')
-st.write('')
+with st.container():
+    new_loss_of_appetite = st.number_input('**loss of appetite**', value=0, min_value=0, max_value=2)
+    st.write('Yes: 1 | No: 0 | Not at all: 2')
+    st.write('')
 
-new_feeling_of_guilt = st.number_input('**Feeling of guilt**', value=0, min_value=0, max_value=2)
-st.write('Yes: 1 | No: 0 | Maybe: 2')
-st.write('')
+with st.container():
+    new_feeling_of_guilt = st.number_input('**Feeling of guilt**', value=0, min_value=0, max_value=2)
+    st.write('Yes: 1 | No: 0 | Maybe: 2')
+    st.write('')
 
-new_problems_of_bonding_with_people = st.number_input('**Problems of bonding with people**', value=0, min_value=0, max_value=2)
-st.write('Yes: 1 | No: 0 | Sometimes: 2')
-st.write('')
+with st.container():
+    new_problems_of_bonding_with_people = st.number_input('**Problems of bonding with people**', value=0, min_value=0, max_value=2)
+    st.write('Yes: 1 | No: 0 | Sometimes: 2')
+    st.write('')
 
-new_suicide_attempt = st.number_input('**Suicide attempt**', value=0, min_value=0, max_value=2)
-st.write('Yes: 1 | No: 0 | Not interested to say: 2')
-st.write('')
+with st.container():
+    new_suicide_attempt = st.number_input('**Suicide attempt**', value=0, min_value=0, max_value=2)
+    st.write('Yes: 1 | No: 0 | Not interested to say: 2')
+    st.write('')
 
 prediksi = st.button('Prediksi')
 
