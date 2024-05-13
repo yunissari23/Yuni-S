@@ -19,8 +19,10 @@ from tensorflow.keras.layers import Dense
 # Streamlit
 st.title('Depression Prediction')
 st.write('Fill this form as your current condition')
+st.write('')
 
 file = st.file_uploader("Unggah file CSV", type=["csv"])
+st.write('')
 
 # Widget input untuk data baru
 new_age = st.number_input('**Age**', value=0, min_value=0, max_value=4)
