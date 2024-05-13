@@ -78,7 +78,7 @@ prediksi = st.button('Prediksi')
 df = pd.read_csv('depressionData.csv', index_col=0)
 
 # Split the data into features (X) and target variable (y)
-X = df.drop(columns=['Time_stamp', 'Depressed'])
+X = df.drop(columns=['Time_stamp', 'Depressed', axis=1])
 
 X['Age'] = X['Age'].map({'25-30': 0, '30-35': 1, '35-40': 2, '40-45': 3, '45-50': 4})
 X['Feeling sad'] = X['Feeling sad'].map({'Yes': 1, 'No': 0, 'Sometimes': 2})
