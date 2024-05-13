@@ -72,7 +72,7 @@ st.write('Yes: 1 | No: 0 | Not interested to say: 2')
 st.write('')
 st.write('')
 
-prediksi = st.button('Prediksi')
+prediksi = st.button('Predict')
 
 df = pd.read_csv('DataDepresi.csv')
 
@@ -138,6 +138,6 @@ if prediksi:
 
 # hasil prediksi
     if (binary_predictions==0):
-        st.write("Selamat, Anda tidak depresi :)")
+        st.write("Congrats, You are not depressed :)")
     else:
-        st.write("Anda terindikasi depresi :(")
+        st.write("You are depressed :(")
