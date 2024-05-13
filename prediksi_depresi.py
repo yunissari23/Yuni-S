@@ -21,7 +21,7 @@ st.title('Depression Prediction')
 st.write('Fill this form as your current condition')
 st.write('')
 
-file = "https://github.com/yunissari23/Yuni-S/blob/main/depressionData.csv"
+#file = "https://github.com/yunissari23/Yuni-S/blob/main/depressionData.csv"
 # Widget input untuk data baru
 new_age = st.number_input('**Age**', value=0, min_value=0, max_value=4)
 st.write('25-30 tahun: 0')
@@ -74,8 +74,8 @@ st.write('')
 
 prediksi = st.button('Prediksi')
 
-col_names = ["Age", "Feeling sad", "Irritable towards people", "Trouble sleeping at night", "Problems concentrating or making decision", "loss of appetite", "Feeling of guilt", "Problems of bonding with people", "Suicide attempt"]
-df = pd.read_csv(file, index_col=0)
+#col_names = ["Age", "Feeling sad", "Irritable towards people", "Trouble sleeping at night", "Problems concentrating or making decision", "loss of appetite", "Feeling of guilt", "Problems of bonding with people", "Suicide attempt"]
+df = pd.read_csv('depressionData.csv', index_col=0)
 
 # Split the data into features (X) and target variable (y)
 X = df.drop(columns=['Timestamp', 'Depressed'])
