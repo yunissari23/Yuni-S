@@ -15,6 +15,7 @@ from sklearn.preprocessing import StandardScaler
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 
+df = pd.read_csv('DataDepresi.csv')
 
 # Streamlit
 st.title('Depression Prediction')
@@ -73,8 +74,6 @@ st.write('')
 st.write('')
 
 prediksi = st.button('Predict')
-
-df = pd.read_csv('DataDepresi.csv')
 
 # Split the data into features (X) and target variable (y)
 X = df.drop(columns=['Depressed'])
